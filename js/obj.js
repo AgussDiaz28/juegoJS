@@ -1,4 +1,4 @@
-function random(){
+function random() {
 
   let objeto;
   let element = Math.round((Math.random() * 2 )); //round redondea los valores del random que va desde 0 a 2
@@ -16,7 +16,7 @@ function random(){
   return objeto;
 }
 
-function comparar(objetojugador,objeto,victorias){
+function comparar(objetojugador,objeto,victorias) {
 
   print(objeto,objetojugador);
 
@@ -62,9 +62,10 @@ function print(objeto,objetojugador) {
     yo.src = imagenjugador;
 }
 
-function desicion(objetojugador,checked){
+function desicion(objetojugador) {
     let victorias;
-    if (checked == 'true'){
+	let status = checkbox();
+    if ( status == 'true'){
       let objeto = newrandom(0,100,0);
       comparar(objetojugador,objeto,victorias)
     }
@@ -78,7 +79,7 @@ function desicion(objetojugador,checked){
   }
 }
 
-function newrandom (value1,value2,value3){
+function newrandom (value1,value2,value3) {
   let objeto;
   let element = Math.round((Math.random() * 100 )); // me devuelve numeros entre 0 y 100
 
@@ -95,10 +96,16 @@ function newrandom (value1,value2,value3){
   return objeto;
 }
 
-function multiple(valor){
+function multiple(valor) {
     resto = valor % 3;
     if(resto == 0)
         return true;
     else
         return false;
+}
+
+function checkbox() {
+    var x = document.getElementById("myCheck").checked;
+	console.log(x);
+    return x;
 }
