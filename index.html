@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Practico Especial</title>
+		<title> JuegosJS</title>
 	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	</head>
 
@@ -23,9 +23,9 @@
 
 					 <!--div class="">
 						<ul class="">
-							<li onclick="desicion('piedra')">Piedra</li>
-							<li onclick="desicion('papel')">Papel</li>
-							<li onclick="desicion('tijera')">Tijera</li>
+							<li onclick="desicion('piedra')"><img src="images/piedra.png" alt="tijera" onclick="desicion('piedra')"/></li>
+							<li onclick="desicion('papel')"><img src="images/papel.png" alt="tijera" onclick="desicion('papel')"/></li>
+							<li onclick="desicion('tijera')"><img src="images/tijera.png" alt="tijera" onclick="desicion('tijera')"/></li>
 						</ul>
 					</div> -->
 
@@ -48,6 +48,15 @@
 				</div>
 
 				 <input  type="checkbox" id="myCheck" > Cambiar Random <br>
+
+				 <div class="weapons">
+					 	<label for="name">Piedra</label>
+ 						<input type="text" id="piedra-label" name="piedra">
+						<label for="name">Papel</label>
+						<input type="text" id="papel-label" name="papel">
+						<label for="name">Tijera</label>
+						<input type="text" id="tijera-label" name="tijera">
+				 </div>
 
 		</div>
 

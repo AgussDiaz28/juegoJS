@@ -1,3 +1,5 @@
+let victorias = 0;  /* Variable global de victorias */
+
 function random() {
 
   let objeto;
@@ -16,7 +18,7 @@ function random() {
   return objeto;
 }
 
-function comparar(objetojugador,objeto,victorias) {
+function comparar(objetojugador,objeto) {
 
   print(objeto,objetojugador);
 
@@ -63,19 +65,23 @@ function print(objeto,objetojugador) {
 }
 
 function desicion(objetojugador) {
-    let victorias;
-	let status = checkbox();
-    if ( status == 'true'){
-      let objeto = newrandom(0,100,0);
+	  let status = checkbox();
+    console.log(status);
+    if ( status == true){
+      let piedra = document.getElementById("piedra-label").value;
+      let papel = document.getElementById("papel-label").value;
+      let tijera = document.getElementById("tijera-label").value;
+      let objeto = newrandom(piedra,papel,tijera);
       comparar(objetojugador,objeto,victorias)
     }
     else{
       let objeto = random();
       comparar(objetojugador,objeto,victorias);
     }
-
-  if ( multiple(victorias) == true ){
+    console.log(victorias);
+  if ( victorias == 3 ){
     alert("Felicitaciones por la victorias");
+    victorias = 0;
   }
 }
 
@@ -96,16 +102,7 @@ function newrandom (value1,value2,value3) {
   return objeto;
 }
 
-function multiple(valor) {
-    resto = valor % 3;
-    if(resto == 0)
-        return true;
-    else
-        return false;
-}
-
 function checkbox() {
-    var x = document.getElementById("myCheck").checked;
-	console.log(x);
+    let x = document.getElementById("myCheck").checked;
     return x;
 }
