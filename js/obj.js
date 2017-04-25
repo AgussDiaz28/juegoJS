@@ -23,34 +23,34 @@ function comparar(objetojugador,objeto) {
   print(objeto,objetojugador);
 
   if (objeto == objetojugador){
-    alert("Esto fue un Empate");
+        document.getElementById("message").innerHTML = "Esto fue un empate";
   }
 
   if ((objetojugador == "piedra") && (objeto == "tijera")){
-    alert("Usted Gano");
-    victorias = victorias+1;
+        document.getElementById("message").innerHTML  = "Usted Gano";
+        victorias = victorias+1;
   }
 
   if ((objetojugador == "piedra") && (objeto == "papel")){
-    alert("Usted Perdio");
+        document.getElementById("message").innerHTML = "Usted Perdio";
   }
 
   if ((objetojugador == "papel") && (objeto == "tijera")){
-    alert("Usted Perdio");
+        document.getElementById("message").innerHTML = "Usted Perdio";
   }
 
   if ((objetojugador == "papel") && (objeto == "piedra")){
-    alert("Usted Gano");
-    victorias = victorias+1;
+        document.getElementById("message").innerHTML  = "Usted Gano";
+        victorias = victorias+1;
   }
 
   if ((objetojugador == "tijera") && (objeto == "piedra")){
-    alert("Usted Perdio")
+        document.getElementById("message").innerHTML = "Usted Perdio";
   }
 
   if ((objetojugador == "tijera") && (objeto == "papel")){
-    alert("Usted Gano");
-    victorias = victorias+1;
+        document.getElementById("message").innerHTML  = "Usted Gano";
+        victorias = victorias+1;
   }
 
 }
@@ -71,16 +71,23 @@ function desicion(objetojugador) {
       let piedra = document.getElementById("piedra-label").value;
       let papel = document.getElementById("papel-label").value;
       let tijera = document.getElementById("tijera-label").value;
-      let objeto = newrandom(piedra,papel,tijera);
-      comparar(objetojugador,objeto,victorias)
+      if (isEmpty(piedra) || isEmpty(papel) || isEmpty(tijera)){
+            alert('Falta ingresar valores');
+      }
+      else{
+            let objeto = newrandom(piedra,papel,tijera);
+            comparar(objetojugador,objeto,victorias)
+      }
     }
     else{
       let objeto = random();
       comparar(objetojugador,objeto,victorias);
     }
     console.log(victorias);
+    
   if ( victorias == 3 ){
-    alert("Felicitaciones por la victorias");
+      document.getElementById("message").innerHTML  = "Felicitaciones por sus ultimas 3 victorias!!!";
+      //alert("Felicitaciones por las 3 victorias!");
     victorias = 0;
   }
 }
@@ -95,7 +102,7 @@ function newrandom (value1,value2,value3) {
   if ((element > value1) && (element <= (value2+value1))){
     objeto = "papel";
   }
-  if (element > (value2+value1)){
+  if (element > (value2+value1)){ /* Asumo que si la suma de los 3 valores no da 100, lo que falta es del ultimo elemento */
     objeto = "tijera";
   }
 
@@ -105,4 +112,8 @@ function newrandom (value1,value2,value3) {
 function checkbox() {
     let x = document.getElementById("myCheck").checked;
     return x;
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
 }
