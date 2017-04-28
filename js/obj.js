@@ -68,23 +68,23 @@ function desicion(objetojugador) {
 	  let status = checkbox();
     console.log(status);
     if ( status == true){
-      let piedra = document.getElementById("piedra-label").value;
-      let papel = document.getElementById("papel-label").value;
-      let tijera = document.getElementById("tijera-label").value;
-      if (isEmpty(piedra) || isEmpty(papel) || isEmpty(tijera)){
-            alert('Falta ingresar valores');
-      }
-      else{
-            let objeto = newrandom(piedra,papel,tijera);
-            comparar(objetojugador,objeto,victorias)
-      }
+        let piedra = document.getElementById("piedra-label").value;
+        let papel = document.getElementById("papel-label").value;
+        let tijera = document.getElementById("tijera-label").value;
+        let suma = parseInt(piedra) + parseInt(papel) + parseInt(tijera);
+        if ( (isEmpty(piedra) || isEmpty(papel) || isEmpty(tijera)) || (suma < 100 ) ){
+              alert('Valores no validos');
+        }
+        else{
+              let objeto = newrandom(piedra,papel,tijera);
+              comparar(objetojugador,objeto,victorias)
+        }
     }
     else{
       let objeto = random();
       comparar(objetojugador,objeto,victorias);
     }
-    console.log(victorias);
-    
+
   if ( victorias == 3 ){
       document.getElementById("message").innerHTML  = "Felicitaciones por sus ultimas 3 victorias!!!";
       //alert("Felicitaciones por las 3 victorias!");
@@ -94,15 +94,17 @@ function desicion(objetojugador) {
 
 function newrandom (value1,value2,value3) {
   let objeto;
-  let element = Math.round((Math.random() * 100 )); // me devuelve numeros entre 0 y 100
-
+  let element = Math.round((Math.random() * 101 )); // me devuelve numeros entre 0 y 100
+  value1 = parseInt (value1);
+  value2 = parseInt (value2);
+  value3 = parseInt (value3);
   if (element <= value1){
     objeto = "piedra";
   }
   if ((element > value1) && (element <= (value2+value1))){
     objeto = "papel";
   }
-  if (element > (value2+value1)){ /* Asumo que si la suma de los 3 valores no da 100, lo que falta es del ultimo elemento */
+  if (element > (value2+value1) && (element<= 100) ) { /* Asumo que si la suma de los 3 valores no da 100, lo que falta es del ultimo elemento */
     objeto = "tijera";
   }
 
@@ -116,4 +118,10 @@ function checkbox() {
 
 function isEmpty(str) {
     return (!str || 0 === str.length);
+}
+
+
+function selector(){
+  let val = document.getElementById("select").value
+  desicion(val);
 }

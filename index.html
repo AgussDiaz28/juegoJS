@@ -21,13 +21,12 @@
 						<img src="images/tijera.png" alt="tijera" onclick="desicion('tijera')"/>
 					</div>
 
-					 <!--div class="">
-						<ul class="">
-							<li onclick="desicion('piedra')"><img src="images/piedra.png" alt="tijera" onclick="desicion('piedra')"/></li>
-							<li onclick="desicion('papel')"><img src="images/papel.png" alt="tijera" onclick="desicion('papel')"/></li>
-							<li onclick="desicion('tijera')"><img src="images/tijera.png" alt="tijera" onclick="desicion('tijera')"/></li>
-						</ul>
-					</div> -->
+					<select id="select" class="" onchange="selector()">
+						<option value="piedra" id="piedra-opt">piedra</option>
+						<option value="papel" id="papel-opt">papel</option>
+						<option value="tijera" id="tijera-opt">Tijera</option>
+					</select>
+
 
 
 				</div>
@@ -57,9 +56,9 @@
 						<label for="name">Tijera</label>
 						<input type="text" id="tijera-label" name="tijera">
 				 </div>
-				 
+
 				 <h1 id="message"></h1>
-				 
+
 				 <h2 id="felicitaciones"></h2>
 
 		</div>
