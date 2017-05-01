@@ -120,7 +120,6 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 
-
 function selector(){
   let val = document.getElementById("select").value
   desicion(val);

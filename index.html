@@ -15,19 +15,22 @@
 
 				<div class="">
 
-					<div class="">
-						<img src="images/piedra.png" alt="tijera" onclick="desicion('piedra')"/>
-						<img src="images/papel.png" alt="tijera" onclick="desicion('papel')"/>
-						<img src="images/tijera.png" alt="tijera" onclick="desicion('tijera')"/>
-					</div>
+						<div class="armas">
+							<img src="images/piedra.png" alt="tijera" onclick="desicion('piedra')"/>
+							<img src="images/papel.png" alt="tijera" onclick="desicion('papel')"/>
+							<img src="images/tijera.png" alt="tijera" onclick="desicion('tijera')"/>
+						</div>
 
-					<select id="select" class="" onchange="selector()">
-						<option value="piedra" id="piedra-opt">piedra</option>
-						<option value="papel" id="papel-opt">papel</option>
-						<option value="tijera" id="tijera-opt">Tijera</option>
-					</select>
+						<div class="selector">
+							<select id="select" class="">
+								<option value="piedra" id="piedra-opt">Piedra</option>
+								<option value="papel" id="papel-opt">Papel</option>
+								<option value="tijera" id="tijera-opt">Tijera</option>
+							</select>
 
+							<button type="button" name="Jugar" id="button" onclick="selector()" > Jugar </button>
 
+						</div>
 
 				</div>
 
